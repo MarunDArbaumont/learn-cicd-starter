@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strconv"
 	"time"
 
 	"github.com/go-chi/chi"
@@ -94,6 +95,6 @@ func main() {
 		Handler:     router,
 		ReadTimeout: 15 * time.Second,
 	}
-
+	log.Printf("Serving on port: %s", strconv.Quote(port))
 	log.Fatal(srv.ListenAndServe())
 }
